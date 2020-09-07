@@ -4,7 +4,7 @@
       <div class="card-header">BEER REWARDS</div>
       <div class="card-body">
         <Guest />
-        <div style="margin:5px;font-weight:600;">OR</div>
+        <div style="margin:5px 20px 5px 0px;;font-weight:800;">OR</div>
         <Register />
       </div>
       <div class="card-footer privacy-container">
