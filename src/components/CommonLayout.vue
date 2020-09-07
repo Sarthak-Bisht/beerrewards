@@ -1,4 +1,5 @@
 <template>
+<!-- Common layout component -->
   <div class="card text-center">
     <div class="card-header ">
       {{ heading }}

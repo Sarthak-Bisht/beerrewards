@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="footer-container">
-    <button class="btn btn-dark" :onClick="onContinue">CONTINUE</button>
+    <button class="btn btn-dark .btn-lg" :onClick="onContinue">CONTINUE</button>
   </div>
 </template>
 
@@ -26,16 +26,19 @@ export default {
   components: {},
   methods: {
     onContinue() {
+      //method to verify if the birth year entered by the user is 18 year or over
       const yearParsed = parseInt(this.year);
       if (!isNaN(yearParsed) && yearParsed.toString().length == 4) {
         const currentYear = new Date().getFullYear();
         if (yearParsed < 1900 || yearParsed > currentYear) {
+          //verifies the year entered is b/w the 1900 -current year
           alert("Must enter a year between 1900 - 2020");
         } else if (currentYear - yearParsed < 18) {
+          //Shows alert message if the age is smaller than 18.
           alert("Must be 18 years old or over");
         } else {
+          //redirects to home page
           localStorage.setItem("accessType", "guestUser");
-
           window.location.href = "/home";
         }
       } else {

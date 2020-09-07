@@ -12,7 +12,10 @@
           By submitting this form,you agree to the
           <a href="">Privacy Policy</a>of Beer Reward's website
         </div>
-        <div style="font-weight:800;">Get the facts</div>
+        <div style="font-weight:800;">
+          <span>Get the facts</span>
+          <span style="font-size: 11px;"> DrinkWise.org.au</span>
+        </div>
       </div>
     </div>
   </div>
@@ -29,6 +32,7 @@ export default {
     Register,
   },
   beforeRouteEnter(to, from, next) {
+    // method to redirect user to home page if the user is already logined
     if (localStorage.getItem("accessToken")) {
       localStorage.setItem("accessType", "registeredUser");
       next("/home");
@@ -40,14 +44,15 @@ export default {
 </script>
 <style scoped>
 .card {
-  height: 70%;
+  height: 80%;
   width: 60%;
 }
 .card-header {
   background-color: white;
   border: none;
   font-weight: 600;
-  font-size: large;
+  font-size: x-large;
+  margin-top: 20px;
 }
 .card-body {
   display: flex;

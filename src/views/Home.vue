@@ -18,6 +18,7 @@ export default {
   },
   components: {},
   beforeRouteEnter(to, from, next) {
+    //Redirects to the main page if the user is not logined either by guest or login.
     if (!localStorage.getItem("accessType")) {
       next("/");
     } else {

@@ -95,7 +95,7 @@
             />
             <div class="input-group-append">
               <button
-                class="btn btn-outline-dark btn-sm"
+                class="btn btn-outline-link btn-sm"
                 type="button"
                 id="button-addon2"
                 :onclick="toggleButtonStatus"
@@ -128,7 +128,10 @@
         </form>
       </div>
       <div class="card-footer privacy-container">
-        <div style="font-weight:800;">Get the facts</div>
+        <div style="font-weight:800;">
+          <span>Get the facts</span>
+          <span style="font-size: 11px;"> DrinkWise.org.au</span>
+        </div>
       </div>
     </div>
   </div>
@@ -162,6 +165,7 @@ export default {
     async register(e) {
       e.preventDefault();
       if (!this.underAgeValidate(this.userData.dob)) {
+        //Alert message if the user is not 18 or over
         alert("age must me 18 or over");
       } else {
         try {
@@ -176,7 +180,7 @@ export default {
             password,
             agree,
           } = this.userData;
-
+          // API calling for registering new user.
           const result = await axios({
             method: "POST",
             url:
@@ -210,6 +214,7 @@ export default {
       }
     },
     underAgeValidate(birthday) {
+      //Method to validate if the age of the user is 18 or over
       const optimizedBirthday = birthday.replace(/-/g, "/");
       const myBirthday = new Date(optimizedBirthday);
       const currentDate = new Date().toJSON().slice(0, 10) + " 01:00:00";
@@ -221,6 +226,7 @@ export default {
       }
     },
     toggleButtonStatus() {
+      // method to show/hide the password
       this.passwordButtonStatus = !this.passwordButtonStatus;
     },
   },
@@ -231,16 +237,17 @@ form {
   width: 55%;
 }
 .card {
-  height: 70%;
+  height: 80%;
   width: 60%;
 }
 .card-header {
   background-color: white;
   border: none;
+  margin-top: 20px;
 }
 .main-heading {
   font-weight: 600;
-  font-size: large;
+  font-size: x-large;
 }
 .sub-heading {
   font-weight: light;
@@ -286,5 +293,14 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+}
+.btn-outline-link,
+.btn-outline-link:focus {
+  box-shadow: none !important;
+  outline: 0 !important;
+  border-width: 0 0 1px !important;
+  border-color: #212529 !important;
+  border-radius: 0px !important;
+  font-weight: bold;
 }
 </style>
